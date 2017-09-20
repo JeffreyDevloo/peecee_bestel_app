@@ -1,0 +1,25 @@
+<group-button
+  *ngFor="let group of results"
+  [article]="article">
+</group-button>
+
+<div class="article-preview"
+  [hidden]="!loading">
+  Loading groups...
+</div>
+
+<div class="article-preview"
+  [hidden]="loading || results.length">
+  No groups found
+</div>
+
+<nav [hidden]="loading || totalPages <= 1">
+  <ul class="pagination">
+    <li class="page-item"
+      [ngClass]="{'active': pageNumber === currentPage}"
+      *ngFor="let pageNumber of totalPages"
+      (click)="setPageTo(pageNumber)">
+      <a class="page-link" href="#">{{ pageNumber }}</a>
+    </li>
+  </ul>
+</nav>

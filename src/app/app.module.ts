@@ -17,6 +17,7 @@ import {
   FooterComponent,
   HeaderComponent,
   JwtService,
+  LocalForageService,
   ProfilesService,
   SharedModule,
   TagsService,
@@ -48,6 +49,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     AuthGuard,
     CommentsService,
     JwtService,
+    LocalForageService,
     ProfilesService,
     TagsService,
     UserService
