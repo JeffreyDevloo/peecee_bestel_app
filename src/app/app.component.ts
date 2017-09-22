@@ -23,11 +23,11 @@ export class AppComponent implements OnInit {
     Observable
       .zip(groupPopulate$, beveragePopuluate$, (groups, beverages) => ({groups, beverages}))
       .subscribe((pair) => {
-        console.log(pair);
-        // Both of the populates are done. Now populate our orders
-        this.orderService.populate().subscribe((data) => {
-          console.log(data)
-      })
+        console.log('Populated groups and orders');
+      //   // Both of the populates are done. Now populate our orders
+      //   this.orderService.populate().subscribe((data) => {
+      //     console.log(data)
+      // })
     })
   }
 }

@@ -14,21 +14,24 @@ export class GroupService {
   }
 
   populate(){
-    console.log(`Populating ${this.table}`);
-    const groups = [{name: 'Hufflepuff'}, {name: 'Gryffindor'}, {name: 'Ravenclaw'}, {name: 'Slytherin'}];
+    const names = ['Hufflepuff', 'Gryffindor', 'Ravenclaw', 'Slytherin'];
+    const items = [];
+    for (let name of names) {
+      const newItem = this.getNew();
+      newItem.name = name;
+      items.push(newItem);
+    }
     return this.getAll({
       where: {
           name: {
-            'in': groups.map((group) => group.name)
+            'in': items.map((group) => group.name)
           }
         }
       }
     )
-      .mergeMap((foundGroups) => {
-        console.log(foundGroups);
+      .mergeMap((foundItems) => {
         // Store all missing items
-        const itemsToStore = groups.filter((group) => !foundGroups.some((foundGroup) => foundGroup.name === group.name));
-        console.log(itemsToStore);
+        const itemsToStore = items.filter((group) => !foundItems.some((foundGroup) => foundGroup.name === group.name));
         return store.createMany(this.table, itemsToStore);
       })
   };
@@ -41,6 +44,9 @@ export class GroupService {
     return Observable.fromPromise(
       store.findAll(this.table, query)
     );
+  }
+  getNew(): IGroup {
+    return <IGroup>store.createRecord(this.table);
   }
 
   destroy(id) {

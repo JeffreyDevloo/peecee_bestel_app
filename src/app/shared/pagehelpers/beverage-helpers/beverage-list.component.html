@@ -1,16 +1,16 @@
-<group-button
-  *ngFor="let article of results"
-  [article]="article">
-</group-button>
+<beverage-button
+  *ngFor="let beverage of results"
+  [beverage]="beverage">
+</beverage-button>
 
 <div class="article-preview"
   [hidden]="!loading">
-  Loading articles...
+  Loading beverages...
 </div>
 
 <div class="article-preview"
   [hidden]="loading || results.length">
-  No articles are here... yet.
+  No beverages are here... yet.
 </div>
 
 <nav [hidden]="loading || totalPages <= 1">

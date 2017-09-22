@@ -7,6 +7,7 @@ import { ArticleModule } from './article/article.module';
 import { AuthModule } from './auth/auth.module';
 import { EditorModule } from './editor/editor.module';
 import { HomeModule } from './home/home.module';
+import { OrderModule} from './order/order.module'
 import { ProfileModule } from './profile/profile.module';
 import { SettingsModule } from './settings/settings.module';
 import {
@@ -44,6 +45,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     AuthModule,
     EditorModule,
     HomeModule,
+    OrderModule,
     ProfileModule,
     rootRouting,
     SharedModule,

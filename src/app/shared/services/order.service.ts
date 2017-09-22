@@ -17,11 +17,7 @@ export class OrderService {
   ) {
   }
 
-  getNew(): IOrder {
-    return <IOrder>store.createRecord(this.table);
-  }
   populate(){
-    console.log(`Populating ${this.table}`);
     const items = [{name: 'test_aankoop'}];
     const beverage$ = this.beverageService.getAll();
     const group$ = this.groupService.getAll();
@@ -29,23 +25,14 @@ export class OrderService {
     return Observable
       .zip(group$, beverage$, (groups, beverages) => ({groups, beverages}))
       .mergeMap((data: any) => {
-        console.log(data);
         const beverage = data.beverages[0];
         const group = data.groups[0];
         items[0]['beverage_ids'] = [beverage.id];
         items[0]['beverages'] = [beverage];
         items[0]['group_ids'] = [group.id];
         items[0]['groups'] = [group];
-        console.log(items[0]);
         // Both of the populates are done. Now populate our orders
-        return this.getAll({where: {name: {'in': items.map((item) => item.name)}}},{with: ['beverages', 'groups']})
-          .mergeMap((foundItems) => {
-            console.log(foundItems);
-            // Store all missing items
-            const itemsToStore = items.filter((item) => !foundItems.some((foundItem) => foundItem.name === item.name));
-            console.log(itemsToStore);
-            return store.createMany(this.table, itemsToStore);
-          })
+        return store.createMany(this.table, items);
       })
   };
   get(id): Observable<IOrder> {
@@ -57,6 +44,9 @@ export class OrderService {
     return Observable.fromPromise(
       store.findAll(this.table, query, opts)
     );
+  }
+  getNew(): IOrder {
+    return <IOrder>store.createRecord(this.table);
   }
 
   destroy(id) {

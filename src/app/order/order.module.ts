@@ -7,7 +7,7 @@ import { SharedModule } from '../shared';
 
 const orderRouting: ModuleWithProviders = RouterModule.forChild([
   {
-    path: 'order/',
+    path: '',
     component: OrderComponent,
   }
 ]);
@@ -25,4 +25,4 @@ const orderRouting: ModuleWithProviders = RouterModule.forChild([
     OrderResolver
   ]
 })
-export class orderModule {}
+export class OrderModule {}

@@ -7,5 +7,6 @@ export const groupSchema = new Schema({
   properties: {
     id: { type: 'string', indexed: true },
     name: { type: 'string' }
-  }
+  },
+  required: ['name']
 });

@@ -1,21 +1,40 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import { Observable, Subject } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { store } from '../providers/js-data.provider';
-import { IBeverage} from "../js-data/interfaces/beverage.interface";
+import { IBeverage, IOrder} from "../js-data/interfaces";
 
 @Injectable()
 export class BeverageService {
   private table = 'beverage';
+  private beveragesQueuedSource = new Subject<IBeverage>();
+  private beveragesConfirmedSource = new Subject<IBeverage>();
+  beveragesQueued$ = this.beveragesQueuedSource.asObservable();
+  beveragesConfirmed$ = this.beveragesConfirmedSource.asObservable();
   constructor (
-  ) {
-  }
+  ) { }
 
+  // Functions to pass around shared data between components
+  queueBeverage(beverage: IBeverage) {
+    // Queue op a beverage
+    this.beveragesQueuedSource.next(beverage);
+  }
+  confirmBeverage(beverage: IBeverage) {
+    // Confirm the beverage to use in this order
+    this.beveragesConfirmedSource.next(beverage);
+  }
+  // General functions for beverages
   populate(): Observable<IBeverage[]>{
-    console.log(`Populating ${this.table}`);
-    const items = [{name: 'Beer'}, {name: 'Wine'}, {name: 'Shots'}, {name: 'Other'}];
+    const names = ['Beer', 'Wine', 'Shots', 'Other'];
+    const items = [];
+    // Generate items
+    for (let name of names) {
+      const newItem = this.getNew();
+      newItem.name = name;
+      items.push(newItem);
+    }
     return this.getAll({
       where: {
           name: {
@@ -25,10 +44,8 @@ export class BeverageService {
       }
     )
       .mergeMap((foundItems) => {
-        console.log(foundItems);
         // Store all missing items
         const itemsToStore = items.filter((item) => !foundItems.some((foundItem) => foundItem.name === item.name));
-        console.log(itemsToStore);
         return store.createMany(this.table, itemsToStore);
       })
   };
@@ -41,6 +58,9 @@ export class BeverageService {
     return Observable.fromPromise(
       store.findAll(this.table, query)
     );
+  }
+  getNew(): IBeverage {
+    return <IBeverage>store.createRecord(this.table);
   }
 
   destroy(id) {

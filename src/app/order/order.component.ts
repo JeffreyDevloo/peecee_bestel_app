@@ -2,16 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { BeverageService} from "../shared/services/beverage.service";
+import { IBeverage } from "../shared/js-data/interfaces/beverage.interface";
 import {
-  OrderService,
   Comment,
+  OrderService,
+  QueryModel,
   User,
   UserService
 } from '../shared';
 
+
 @Component({
   selector: 'article-page',
-  templateUrl: './order.component.html'
+  templateUrl: './order.component.html',
+  providers: [BeverageService]  // Share same instance to children and injects that instance into itself through its constructor
 })
 export class OrderComponent implements OnInit {
   order;
@@ -22,13 +27,20 @@ export class OrderComponent implements OnInit {
   commentFormErrors = {};
   isSubmitting = false;
   isDeleting = false;
-
+  listConfig: QueryModel = new QueryModel();
+  queuedBeverages: IBeverage[] = [];
   constructor(
     private orderService: OrderService,
     private router: Router,
     private userService: UserService,
+    private beverageService: BeverageService
   ) {
     this.order = this.orderService.getNew();
+    this.beverageService.beveragesQueued$.subscribe(
+      (beverage) => {
+        this.queuedBeverages.push(beverage)
+      }
+    )
   }
 
   ngOnInit() {

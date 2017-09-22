@@ -1,11 +1,7 @@
 export const groupRelation = {
   hasMany: {
-    order: {
-      // Since relationship information is stored
-      // on the order, in order to retrieve a
-      // order's groups we have to do a O(n^2)
-      // search through all the player instances
-      foreignKeys: 'group_ids',
+    order: {  // A group can have multiple orders
+      foreignKey: 'group_id', // Place a key group_id onto order to map it
       // In memory, a user's posts will be attached to
       // user objects via the user's "posts" property,
       // i.e. console.log(user.posts); // [{...}, {...}, ...]

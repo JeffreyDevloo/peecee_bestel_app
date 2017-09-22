@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { ArticleListComponent, ArticleMetaComponent, ArticlePreviewComponent } from './article-helpers';
+import { GroupListComponent, GroupButtonComponent, BeverageButtonComponent, BeverageListComponent} from "./pagehelpers";
 import { FavoriteButtonComponent, FollowButtonComponent } from './buttons';
 import { ListErrorsComponent } from './list-errors.component';
 import { ShowAuthedDirective } from './show-authed.directive';
@@ -19,29 +20,42 @@ import { MarkdownPipe} from "./pipes/markdown.pipe";
     RouterModule
   ],
   declarations: [
+    // Directives
+    ShowAuthedDirective,
+    // Component
     ArticleListComponent,
     ArticleMetaComponent,
     ArticlePreviewComponent,
+    BeverageButtonComponent,
+    BeverageListComponent,
     FavoriteButtonComponent,
     FollowButtonComponent,
+    GroupListComponent,
+    GroupButtonComponent,
     ListErrorsComponent,
-    ShowAuthedDirective,
     // Pipes
     MarkdownPipe
   ],
   exports: [
+    // Directives
+    ShowAuthedDirective,
+    // Components
     ArticleListComponent,
     ArticleMetaComponent,
     ArticlePreviewComponent,
-    CommonModule,
+    BeverageButtonComponent,
+    BeverageListComponent,
+    ReactiveFormsModule,
     FavoriteButtonComponent,
     FollowButtonComponent,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule,
+    GroupListComponent,
+    GroupButtonComponent,
     ListErrorsComponent,
+    // Modules
+    CommonModule,
+    FormsModule,
+    HttpModule,
     RouterModule,
-    ShowAuthedDirective,
     // Pipes
     MarkdownPipe
   ]

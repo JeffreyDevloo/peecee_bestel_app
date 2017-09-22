@@ -11,6 +11,8 @@ export const store = new DataStore();
 store.registerAdapter('localstorage', adapter, {default: true});
 
 // Register the mappers
+store.defineMapper('transaction', mappers.transactionMapper);
 store.defineMapper('order', mappers.orderMapper);
 store.defineMapper('group', mappers.groupMapper);
 store.defineMapper('beverage', mappers.beverageMapper);
+

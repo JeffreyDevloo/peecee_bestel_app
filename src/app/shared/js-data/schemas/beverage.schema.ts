@@ -6,6 +6,8 @@ export const beverageSchema = new Schema({
   type: 'object',
   properties: {
     id: { type: 'string', indexed: true},
-    name: { type: 'string' }
-  }
+    name: { type: 'string' },
+    price: { type: 'number'}
+  },
+  required: ['name']
 });
