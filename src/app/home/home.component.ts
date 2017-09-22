@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ArticleListConfig, TagsService, UserService } from '../shared';
+import { ArticleListConfig, TagsService, UserService, GroupService } from '../shared';
 
 @Component({
   selector: 'home-page',
@@ -12,7 +12,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private tagsService: TagsService,
-    private userService: UserService
+    private userService: UserService,
+    private groupService: GroupService
   ) {}
 
   isAuthenticated: boolean;

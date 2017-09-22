@@ -2,14 +2,14 @@ import { Injectable, } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 
-import { Group, GroupService, UserService } from '../shared';
+import { IOrder} from "../shared/js-data/interfaces/order.interface";
+import { OrderService, UserService } from '../shared';
 
 @Injectable()
-export class GroupResolver implements Resolve<Group> {
+export class OrderResolver implements Resolve<IOrder> {
   constructor(
-    private groupService: GroupService,
+    private orderService: OrderService,
     private router: Router,
-    private userService: UserService
   ) {}
 
   resolve(
@@ -17,8 +17,8 @@ export class GroupResolver implements Resolve<Group> {
     state: RouterStateSnapshot
   ): Observable<any> {
 
-    return this.groupService.get(route.params['id'])
-           .catch((err) => this.router.navigateByUrl('/'));
+    return this.orderService.get(route.params['id'])
+      .catch((err) => this.router.navigateByUrl('/'));
 
   }
 }

@@ -6,5 +6,7 @@ export * from './jwt.service';
 export * from './profiles.service';
 export * from './tags.service';
 export * from './user.service';
-export * from './groups.service'
-export * from './localforage.service'
+export * from './group.service';
+export * from './js-data.service';
+export * from './beverage.service';
+export * from './order.service';

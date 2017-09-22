@@ -12,7 +12,8 @@ export class ApiService {
   constructor(
     private http: Http,
     private jwtService: JwtService
-  ) { }
+  ) {
+}
 
   private setHeaders(): Headers {
     const headersConfig = {

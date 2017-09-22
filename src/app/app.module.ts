@@ -10,16 +10,22 @@ import { HomeModule } from './home/home.module';
 import { ProfileModule } from './profile/profile.module';
 import { SettingsModule } from './settings/settings.module';
 import {
-  ApiService,
-  ArticlesService,
-  AuthGuard,
-  CommentsService,
+  // Components
   FooterComponent,
   HeaderComponent,
-  JwtService,
-  LocalForageService,
-  ProfilesService,
+  // Guards
+  AuthGuard,
+  // Modules
   SharedModule,
+  // Services
+  ApiService,
+  ArticlesService,
+  BeverageService,
+  CommentsService,
+  GroupService,
+  JwtService,
+  OrderService,
+  ProfilesService,
   TagsService,
   UserService
 } from './shared';
@@ -44,12 +50,16 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     SettingsModule
   ],
   providers: [
+    // Guards
+    AuthGuard,
+    //Services
     ApiService,
     ArticlesService,
-    AuthGuard,
+    BeverageService,
     CommentsService,
+    GroupService,
     JwtService,
-    LocalForageService,
+    OrderService,
     ProfilesService,
     TagsService,
     UserService

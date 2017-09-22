@@ -1,12 +1,21 @@
 import { Component, Input } from '@angular/core';
 
-import { Group } from '../models';
+import { Article } from '../models';
 
 @Component({
-  selector: 'group-button',
+  selector: 'article-preview',
   templateUrl: './group-button.component.html'
 })
-export class GroupButtonComponent {
-  @Input() group: Group;
+export class ArticlePreviewComponent {
+  @Input() article: Article;
 
+  onToggleFavorite(favorited: boolean) {
+    this.article['favorited'] = favorited;
+
+    if (favorited) {
+      this.article['favoritesCount']++;
+    } else {
+      this.article['favoritesCount']--;
+    }
+  }
 }

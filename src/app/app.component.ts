@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from "rxjs/Observable";
 
-import { UserService, } from './shared';
+import { UserService, GroupService, BeverageService, OrderService } from './shared';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,24 @@ import { UserService, } from './shared';
 export class AppComponent implements OnInit {
   constructor (
     private userService: UserService,
+    private groupService: GroupService,
+    private beverageService: BeverageService,
+    private orderService: OrderService
   ) { }
 
   ngOnInit() {
     this.userService.populate();
+    // Line 1221 in js-data-localstorage should be localKeys = localKeys.concat(self.makeHasManyLocalKeys(mapper, def, record));
+    const groupPopulate$ = this.groupService.populate();
+    const beveragePopuluate$ = this.beverageService.populate();
+    Observable
+      .zip(groupPopulate$, beveragePopuluate$, (groups, beverages) => ({groups, beverages}))
+      .subscribe((pair) => {
+        console.log(pair);
+        // Both of the populates are done. Now populate our orders
+        this.orderService.populate().subscribe((data) => {
+          console.log(data)
+      })
+    })
   }
 }
