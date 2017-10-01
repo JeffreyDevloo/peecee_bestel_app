@@ -7,18 +7,9 @@
     <div class="row">
       <div class="col-lg-9">
         <beverage-list [limit]="10" [config]="listConfig"></beverage-list>
-        <p *ngFor="let beverage of queuedBeverages">{{beverage.name}} queued up!</p>
       </div>
       <div class="col-lg-3">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a nisi vitae nisi dictum ornare. Fusce et tempus mauris, gravida bibendum tellus. Nunc a magna blandit, scelerisque turpis ac, vestibulum magna. Phasellus scelerisque et felis id fermentum. Donec est risus, consectetur eu sapien vel, interdum sagittis erat. Suspendisse ac neque tincidunt, pretium erat ut, cursus justo. Vestibulum efficitur volutpat metus. Aliquam turpis arcu, imperdiet vitae faucibus in, tincidunt quis lacus. Ut luctus tempus eros vel luctus. Nullam suscipit arcu a placerat placerat. Nam condimentum dapibus odio auctor tincidunt. Nam rhoncus tortor eu ipsum laoreet gravida. Duis sed luctus quam, sodales auctor justo. Duis interdum in urna sed volutpat. Praesent vitae sodales metus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-
-        Integer vehicula id lacus dapibus euismod. In scelerisque, erat ac commodo lobortis, ligula quam scelerisque ipsum, in volutpat nisl orci nec ligula. Nunc feugiat feugiat nunc, at efficitur erat vehicula sed. Sed at elit vel ligula tempor elementum sit amet eu augue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer in tortor nisi. Donec egestas auctor arcu a venenatis. Duis odio lorem, scelerisque non felis ac, rhoncus imperdiet nunc. Donec id lectus non dui laoreet pulvinar. Vivamus et posuere est. Nullam mauris enim, laoreet vitae nulla nec, faucibus tempor enim. Suspendisse interdum ornare massa eget ullamcorper. Vestibulum convallis, risus vel faucibus hendrerit, velit risus euismod quam, quis porta tortor nunc vitae urna. Nullam vestibulum mauris id nibh hendrerit, sit amet commodo tortor suscipit. Donec aliquam quam nisl, at pellentesque quam vestibulum at.
-
-        Morbi non consectetur urna, eget congue risus. Nunc eu odio in ex ornare condimentum. Sed tortor leo, elementum a lobortis ullamcorper, viverra ac metus. Duis venenatis turpis quis vehicula posuere. Maecenas ullamcorper, dolor eu congue viverra, velit odio tempus metus, eget feugiat dolor lorem ut nibh. Nulla ex mi, pellentesque non augue a, porta sollicitudin libero. Suspendisse lacus eros, aliquet quis tempus eget, ultrices et velit. Nam ac urna vitae lacus commodo tincidunt sit amet quis velit.
-
-        Phasellus a quam erat. Fusce nec turpis imperdiet, varius velit a, tincidunt leo. Pellentesque consectetur elementum purus. Cras ac semper mi. Aliquam in mollis arcu. Curabitur vitae nulla consequat, fringilla erat in, dignissim tellus. Etiam gravida suscipit finibus. Sed augue turpis, porta sed lacus eu, auctor tincidunt odio. Fusce accumsan posuere leo, sed gravida dui semper quis. Quisque facilisis rutrum leo, gravida venenatis nulla convallis eu. Praesent tempor mauris nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus vitae turpis enim. Donec mauris odio, egestas at laoreet ut, suscipit et felis.
-
-        Aenean pulvinar euismod varius. Duis eget dolor tortor. Aenean diam nulla, varius id maximus vel, laoreet eget enim. Maecenas eget blandit odio, non sodales mauris. Donec ipsum tellus, molestie eu lacus nec, condimentum consequat erat. Pellentesque ultricies, ex in rhoncus laoreet, diam risus malesuada arcu, quis sagittis diam mauris id est. Suspendisse convallis tellus nisl, ut malesuada mauris tempus sit amet. Curabitur tempor ornare tristique. Fusce at maximus tellus.
+        <order-queued></order-queued>
       </div>
     </div>
   </div>

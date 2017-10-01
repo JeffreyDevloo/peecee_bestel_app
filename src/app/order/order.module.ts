@@ -1,14 +1,15 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { OrderComponent } from './order.component';
-import { OrderResolver } from './order-resolver.service';
+import { OrderTakerComponent } from './order-taker.component';
+import { OrderResolver } from './order-taker-resolver.service';
+import { OrderQueuedComponent } from "./order-queued.component";
 import { SharedModule } from '../shared';
 
 const orderRouting: ModuleWithProviders = RouterModule.forChild([
   {
     path: '',
-    component: OrderComponent,
+    component: OrderTakerComponent,
   }
 ]);
 
@@ -18,9 +19,9 @@ const orderRouting: ModuleWithProviders = RouterModule.forChild([
     SharedModule
   ],
   declarations: [
-    OrderComponent,
+    OrderTakerComponent,
+    OrderQueuedComponent
   ],
-
   providers: [
     OrderResolver
   ]

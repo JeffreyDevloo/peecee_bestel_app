@@ -14,12 +14,14 @@ import {
 
 
 @Component({
-  selector: 'article-page',
-  templateUrl: './order.component.html',
-  providers: [BeverageService]  // Share same instance to children and injects that instance into itself through its constructor
+  selector: 'order-queued',
+  templateUrl: './order-queued.component.html',
 })
-export class OrderComponent implements OnInit {
-  order;
+/**
+ * Component to mutate the queued drinks.
+ * The amount is set here as well as the ability to cancel the queued drinks
+ */
+export class OrderQueuedComponent implements OnInit {
   currentUser: User;
   canModify: boolean;
   comments: Comment[];
@@ -35,7 +37,6 @@ export class OrderComponent implements OnInit {
     private userService: UserService,
     private beverageService: BeverageService
   ) {
-    this.order = this.orderService.getNew();
     this.beverageService.beveragesQueued$.subscribe(
       (beverage) => {
         this.queuedBeverages.push(beverage)
@@ -44,7 +45,7 @@ export class OrderComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Load the current user's data
+    // Load the current users data
     this.userService.currentUser.subscribe(
       (userData: User) => {
         this.currentUser = userData;
@@ -53,15 +54,8 @@ export class OrderComponent implements OnInit {
       }
     );
   }
+  cancelQueuedBeverage() {
 
-  deleteorder() {
-    this.isDeleting = true;
-
-    this.orderService.destroy(this.order.id)
-      .subscribe(
-        success => {
-          this.router.navigateByUrl('/');
-        }
-      );
   }
+
 }
