@@ -3,9 +3,7 @@ import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import {
-  Group,
   GroupService,
-  Comment,
   User,
   UserService
 } from '../shared';
@@ -15,7 +13,6 @@ import {
   templateUrl: './group.component.html'
 })
 export class GroupComponent implements OnInit {
-  group: Group;
   currentUser: User;
   canModify: boolean;
   comments: Comment[];
@@ -33,11 +30,11 @@ export class GroupComponent implements OnInit {
 
   ngOnInit() {
     // Retrieve the pre-fetched group
-    this.route.data.subscribe(
-      (data: { group: Group }) => {
-        this.group = data.group;
-      }
-    );
+    // this.route.data.subscribe(
+    //   (data: { group: Group }) => {
+    //     this.group = data.group;
+    //   }
+    // );
 
     // Load the current user's data
     this.userService.currentUser.subscribe(
@@ -47,16 +44,5 @@ export class GroupComponent implements OnInit {
         this.canModify = true;
       }
     );
-  }
-
-  deleteGroup() {
-    this.isDeleting = true;
-
-    this.groupService.destroy(this.group.id)
-      .subscribe(
-        success => {
-          this.router.navigateByUrl('/');
-        }
-      );
   }
 }

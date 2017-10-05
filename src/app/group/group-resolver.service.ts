@@ -2,10 +2,10 @@ import { Injectable, } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 
-import { Group, GroupService, UserService } from '../shared';
+import { IGroup, GroupService, UserService } from '../shared';
 
 @Injectable()
-export class GroupResolver implements Resolve<Group> {
+export class GroupResolver implements Resolve<IGroup> {
   constructor(
     private groupService: GroupService,
     private router: Router,
@@ -18,7 +18,6 @@ export class GroupResolver implements Resolve<Group> {
   ): Observable<any> {
 
     return this.groupService.get(route.params['id'])
-           .catch((err) => this.router.navigateByUrl('/'));
-
+      .catch((err) => this.router.navigateByUrl('/'));
   }
 }

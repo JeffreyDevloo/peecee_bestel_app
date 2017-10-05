@@ -4,12 +4,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import { ArticleListComponent, ArticleMetaComponent, ArticlePreviewComponent } from './article-helpers';
 import { GroupListComponent, GroupButtonComponent, BeverageButtonComponent, BeverageListComponent} from "./pagehelpers";
-import { FavoriteButtonComponent, FollowButtonComponent } from './buttons';
 import { ListErrorsComponent } from './list-errors.component';
 import { ShowAuthedDirective } from './show-authed.directive';
-import { MarkdownPipe} from "./pipes/markdown.pipe";
+import { MarkdownPipe, MapIteratorPipe } from "./pipes";
 
 @NgModule({
   imports: [
@@ -23,31 +21,22 @@ import { MarkdownPipe} from "./pipes/markdown.pipe";
     // Directives
     ShowAuthedDirective,
     // Component
-    ArticleListComponent,
-    ArticleMetaComponent,
-    ArticlePreviewComponent,
     BeverageButtonComponent,
     BeverageListComponent,
-    FavoriteButtonComponent,
-    FollowButtonComponent,
     GroupListComponent,
     GroupButtonComponent,
     ListErrorsComponent,
     // Pipes
-    MarkdownPipe
+    MarkdownPipe,
+    MapIteratorPipe
   ],
   exports: [
     // Directives
     ShowAuthedDirective,
     // Components
-    ArticleListComponent,
-    ArticleMetaComponent,
-    ArticlePreviewComponent,
     BeverageButtonComponent,
     BeverageListComponent,
     ReactiveFormsModule,
-    FavoriteButtonComponent,
-    FollowButtonComponent,
     GroupListComponent,
     GroupButtonComponent,
     ListErrorsComponent,
@@ -57,7 +46,8 @@ import { MarkdownPipe} from "./pipes/markdown.pipe";
     HttpModule,
     RouterModule,
     // Pipes
-    MarkdownPipe
+    MarkdownPipe,
+    MapIteratorPipe
   ]
 })
 export class SharedModule {}

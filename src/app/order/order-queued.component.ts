@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {Component, Input, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 
-import { BeverageService} from "../shared/services/beverage.service";
-import { IBeverage } from "../shared/js-data/interfaces/beverage.interface";
 import {
-  Comment,
+  BeverageService,
+  IBeverage,
+  ITransaction,
   OrderService,
-  QueryModel,
   User,
-  UserService
+  UserService,
+  TransactionService
 } from '../shared';
-
+import {IOrder} from "../shared/js-data/interfaces/order.interface";
 
 @Component({
   selector: 'order-queued',
@@ -22,23 +21,22 @@ import {
  * The amount is set here as well as the ability to cancel the queued drinks
  */
 export class OrderQueuedComponent implements OnInit {
+  @Input() order: IOrder;
+
+  transactionMap: Map<IBeverage, ITransaction> = new Map();
   currentUser: User;
   canModify: boolean;
-  comments: Comment[];
-  commentControl = new FormControl();
-  commentFormErrors = {};
-  isSubmitting = false;
-  isDeleting = false;
-  listConfig: QueryModel = new QueryModel();
   queuedBeverages: IBeverage[] = [];
   constructor(
     private orderService: OrderService,
     private router: Router,
     private userService: UserService,
-    private beverageService: BeverageService
+    private beverageService: BeverageService,
+    private transactionService: TransactionService
   ) {
     this.beverageService.beveragesQueued$.subscribe(
       (beverage) => {
+        this.handleTransaction(beverage);
         this.queuedBeverages.push(beverage)
       }
     )
@@ -54,8 +52,24 @@ export class OrderQueuedComponent implements OnInit {
       }
     );
   }
+  handleTransaction(beverage:IBeverage) {
+    let transaction: ITransaction;
+    if (this.transactionMap.has(beverage)) {
+      transaction = this.transactionMap.get(beverage);
+    } else {
+      transaction = this.transactionService.getNew(beverage.id);
+    }
+    // Update our transaction
+    transaction.beverage_id = beverage.id;
+    transaction.amount += 1;
+    // Set also updates when key is present
+    this.transactionMap.set(beverage, transaction)
+  }
+
+  get transactionEntries(): [IBeverage, ITransaction][] {
+    return Array.from(this.transactionMap.entries());
+  }
   cancelQueuedBeverage() {
 
   }
-
 }

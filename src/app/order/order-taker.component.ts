@@ -1,17 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-
-import { BeverageService} from "../shared/services/beverage.service";
-import { IBeverage } from "../shared/js-data/interfaces/beverage.interface";
+import { IOrder } from "../shared/js-data/interfaces/order.interface";
 import {
-  Comment,
   OrderService,
   QueryModel,
   User,
-  UserService
+  UserService,
+  BeverageService,
 } from '../shared';
-
 
 @Component({
   selector: 'order-taker',
@@ -19,20 +15,15 @@ import {
   providers: [BeverageService]  // Share same instance to children and injects that instance into itself through its constructor
 })
 export class OrderTakerComponent implements OnInit {
-  order;
+  order: IOrder;
   currentUser: User;
   canModify: boolean;
-  comments: Comment[];
-  commentControl = new FormControl();
-  commentFormErrors = {};
-  isSubmitting = false;
   isDeleting = false;
   listConfig: QueryModel = new QueryModel();
   constructor(
     private orderService: OrderService,
     private router: Router,
     private userService: UserService,
-    private beverageService: BeverageService
   ) {
     this.order = this.orderService.getNew();
   }

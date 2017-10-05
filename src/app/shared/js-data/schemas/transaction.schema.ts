@@ -6,9 +6,9 @@ export const transactionSchema = new Schema({
   type: 'object',
   properties: {
     id: { type: 'string', indexed: true},
-    amount: { type: 'string' },
-    beverage_ids : {type: 'array', items: 'string'},  // Beverages need to be linked before saving
+    amount: { type: 'number' },
+    beverage_id : {type: 'string'},  // Beverage need to be linked before saving
     order_id: {type: 'string'}  // An order must exist before saving the transaction
   },
-  required: ['name', 'beverage_ids', 'order_id']
+  required: ['amount', 'beverage_id', 'order_id']
 });
