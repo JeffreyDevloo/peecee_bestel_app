@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 
 import { ProfileComponent } from './profile.component';
 import { ProfileResolver } from './profile-resolver.service';
-import { SharedModule } from '../shared';
+import { SharedModule } from 'app/shared';
 
 const profileRouting: ModuleWithProviders = RouterModule.forChild([
   {

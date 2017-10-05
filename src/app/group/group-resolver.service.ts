@@ -2,7 +2,8 @@ import { Injectable, } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 
-import { IGroup, GroupService, UserService } from '../shared';
+import { IGroup } from 'app/shared';
+import { GroupService, UserService} from 'app/core/services'
 
 @Injectable()
 export class GroupResolver implements Resolve<IGroup> {

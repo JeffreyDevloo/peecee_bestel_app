@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IOrder } from "../shared/js-data/interfaces/order.interface";
-import {
-  OrderService,
-  QueryModel,
-  User,
-  UserService,
-  BeverageService,
-} from '../shared';
+import { QueryModel, User, IOrder} from 'app/shared'
+import { OrderService, UserService, BeverageService } from 'app/core/services'
 
 @Component({
   selector: 'order-taker',

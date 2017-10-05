@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import {
-  GroupService,
-  User,
-  UserService
-} from '../shared';
+import { User } from 'app/shared';
+import { GroupService, UserService } from 'app/core/services';
 
 @Component({
   selector: 'article-page',

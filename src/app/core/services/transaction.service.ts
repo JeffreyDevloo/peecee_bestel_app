@@ -3,8 +3,8 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { store } from '../providers/js-data.provider';
-import { ITransaction } from "../js-data/interfaces";
+import { store } from 'app/core/providers/js-data.provider';
+import { ITransaction } from "app/shared";
 
 @Injectable()
 export class TransactionService {

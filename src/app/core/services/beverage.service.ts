@@ -3,8 +3,8 @@ import { Observable, Subject } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { store } from '../providers/js-data.provider';
-import { IBeverage, IOrder} from "../js-data/interfaces";
+import { store } from 'app/core/providers/js-data.provider';
+import { IBeverage} from "app/shared";
 
 @Injectable()
 export class BeverageService {

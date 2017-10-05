@@ -1,7 +1,8 @@
 import { DataStore } from 'js-data';
 import { LocalStorageAdapter} from 'js-data-localstorage'
 
-import * as mappers from '../js-data/mappers'
+// Models and interfaces etc are kept within the shared folder
+import * as mappers from 'app/shared/js-data/mappers'
 
 // Export all interfaces from this service
 

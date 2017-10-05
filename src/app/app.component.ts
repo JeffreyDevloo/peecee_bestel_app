@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 
-import { UserService, GroupService, BeverageService, OrderService } from './shared';
+import { UserService, GroupService, BeverageService, OrderService } from 'app/core/services';
 
 @Component({
   selector: 'app-root',

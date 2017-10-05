@@ -1,5 +1,5 @@
-import { TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID, MissingTranslationStrategy } from '@angular/core';
 import { CompilerConfig } from '@angular/compiler';
+import { TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID, MissingTranslationStrategy } from '@angular/core';
 
 export function getTranslationProviders(): Promise<Object[]> {
 
@@ -27,7 +27,7 @@ export function getTranslationProviders(): Promise<Object[]> {
     .catch(() => noProviders); // ignore if file not found
 }
 
-declare var System: any;
+declare let System: any;
 
 function getTranslationsWithSystemJs(file: string) {
   return System.import(file + '!text'); // relies on text plugin

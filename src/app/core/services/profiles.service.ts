@@ -3,8 +3,8 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { ApiService } from './api.service';
-import { Profile } from '../models';
+import { Profile } from 'app/shared';
+import { ApiService } from 'app/core/services/api.service';
 
 @Injectable()
 export class ProfilesService {

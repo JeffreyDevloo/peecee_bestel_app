@@ -1,16 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 
-import {
-  BeverageService,
-  IBeverage,
-  ITransaction,
-  OrderService,
-  User,
-  UserService,
-  TransactionService
-} from '../shared';
-import {IOrder} from "../shared/js-data/interfaces/order.interface";
+
+import { IBeverage, ITransaction, IOrder, User} from "app/shared";
+import { BeverageService, OrderService, UserService, TransactionService} from "app/core/services";
 
 @Component({
   selector: 'order-queued',

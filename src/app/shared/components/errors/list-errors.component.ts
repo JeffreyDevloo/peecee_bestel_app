@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Errors } from './models';
+import { Errors } from 'app/shared/models';
 
 @Component({
   selector: 'list-errors',

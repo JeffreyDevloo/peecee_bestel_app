@@ -4,47 +4,54 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import { GroupListComponent, GroupButtonComponent, BeverageButtonComponent, BeverageListComponent} from "./pagehelpers";
-import { ListErrorsComponent } from './list-errors.component';
-import { ShowAuthedDirective } from './show-authed.directive';
-import { MarkdownPipe, MapIteratorPipe } from "./pipes";
+import {
+  GroupListComponent,
+  GroupButtonComponent,
+  BeverageButtonComponent,
+  BeverageListComponent
+} from "app/shared/pagehelpers";
+
+import { MarkdownPipe, MapIteratorPipe } from "app/shared/pipes";
+import { ErrorsModule } from "./components/errors/errors.module";
+import { LayoutModule } from "./components/layout/layout.module";
 
 @NgModule({
   imports: [
+    // Modules
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule
+    RouterModule,
+    // Own Modules
+    ErrorsModule,
+    LayoutModule
   ],
   declarations: [
-    // Directives
-    ShowAuthedDirective,
     // Component
     BeverageButtonComponent,
     BeverageListComponent,
     GroupListComponent,
     GroupButtonComponent,
-    ListErrorsComponent,
     // Pipes
     MarkdownPipe,
     MapIteratorPipe
   ],
   exports: [
-    // Directives
-    ShowAuthedDirective,
+    // Modules
+    CommonModule,
+    FormsModule,
+    HttpModule,
+    RouterModule,
+    // Own Modules
+    ErrorsModule,
+    LayoutModule,
     // Components
     BeverageButtonComponent,
     BeverageListComponent,
     ReactiveFormsModule,
     GroupListComponent,
     GroupButtonComponent,
-    ListErrorsComponent,
-    // Modules
-    CommonModule,
-    FormsModule,
-    HttpModule,
-    RouterModule,
     // Pipes
     MarkdownPipe,
     MapIteratorPipe

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { User, UserService } from '../shared';
+import { User } from 'app/shared';
+import { UserService } from 'app/core/services';
 
 @Component({
   selector: 'settings-page',

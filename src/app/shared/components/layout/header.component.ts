@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { User } from '../models';
-import { UserService } from '../services';
-
-import { Globals } from '../globals';
+import { User } from 'app/shared';
+import { Globals } from 'app/shared/globals';
+import { UserService } from 'app/core/services';
 
 @Component({
   selector: 'layout-header',

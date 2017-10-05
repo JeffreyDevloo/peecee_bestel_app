@@ -1,7 +1,7 @@
 import { Component, Input} from '@angular/core';
 
-import { BeverageService} from "../../services/beverage.service";
-import { IBeverage } from "../../js-data/interfaces";
+import { IBeverage } from "app/shared/js-data/interfaces";
+import { BeverageService} from "app/core/services/beverage.service";
 
 @Component({
   selector: 'beverage-button',
@@ -15,7 +15,7 @@ export class BeverageButtonComponent {
   @Input() beverage: IBeverage;
 
   beverageButtonClicked() {
-    console.log('Queuing beverage')
+    console.log('Queuing beverage');
     this.beverageService.queueBeverage(this.beverage);
   }
 }

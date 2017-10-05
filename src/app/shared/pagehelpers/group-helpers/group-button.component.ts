@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { IGroup} from "../../js-data/interfaces/group.interface";
+import { IGroup} from "app/shared/js-data/interfaces";
 
 @Component({
   selector: 'group-button',

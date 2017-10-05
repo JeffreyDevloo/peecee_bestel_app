@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 
 import { GroupComponent } from './group.component';
 import { GroupResolver } from './group-resolver.service';
-import { SharedModule } from '../shared';
+import { SharedModule } from 'app/shared';
 
 const groupRouting: ModuleWithProviders = RouterModule.forChild([
   {

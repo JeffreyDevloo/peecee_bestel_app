@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
-import { QueryModel } from '../../models';
-import { BeverageService } from '../../services';
-import { IGroup} from "../../js-data/interfaces/group.interface";
+import { QueryModel } from 'app/shared/models';
+import { BeverageService } from 'app/core/services';
+import { IGroup} from "app/shared/js-data/interfaces/group.interface";
 
 @Component({
   selector: 'beverage-list',

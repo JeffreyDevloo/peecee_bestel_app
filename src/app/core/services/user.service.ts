@@ -6,10 +6,9 @@ import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { ApiService } from './api.service';
-import { JwtService } from './jwt.service';
-import { User } from '../models';
-
+import { User } from 'app/shared/models';
+import { ApiService } from 'app/core/services/api.service';
+import { JwtService } from 'app/core/services/jwt.service'
 
 @Injectable()
 export class UserService {
@@ -29,7 +28,7 @@ export class UserService {
   // This runs once on application startup.
   populate() {
     // If JWT detected, attempt to get & store user's info
-    if (this.jwtService.getToken()) {
+    if (JwtService.getToken()) {
       this.apiService.get('/user')
       .subscribe(
         data => this.setAuth(data.user),
@@ -43,7 +42,7 @@ export class UserService {
 
   setAuth(user: User) {
     // Save JWT sent from server in localstorage
-    this.jwtService.saveToken(user.token);
+    JwtService.saveToken(user.token);
     // Set current user data into observable
     this.currentUserSubject.next(user);
     // Set isAuthenticated to true
@@ -52,7 +51,7 @@ export class UserService {
 
   purgeAuth() {
     // Remove JWT from localstorage
-    this.jwtService.destroyToken();
+    JwtService.destroyToken();
     // Set current user to an empty object
     this.currentUserSubject.next(new User());
     // Set auth status to false

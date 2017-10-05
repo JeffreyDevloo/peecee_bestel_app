@@ -2,9 +2,9 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { OrderTakerComponent } from './order-taker.component';
-import { OrderResolver } from './order-taker-resolver.service';
 import { OrderQueuedComponent } from "./order-queued.component";
-import { SharedModule } from '../shared';
+import { OrderResolver } from './order-taker-resolver.service';
+import { SharedModule } from 'app/shared';
 
 const orderRouting: ModuleWithProviders = RouterModule.forChild([
   {

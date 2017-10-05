@@ -1,8 +1,9 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+import { AuthGuard } from 'app/core/services'
+import { SharedModule } from 'app/shared';
 import { SettingsComponent } from './settings.component';
-import { AuthGuard, SharedModule } from '../shared';
 
 const settingsRouting: ModuleWithProviders = RouterModule.forChild([
   {

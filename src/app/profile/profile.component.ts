@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { User, UserService, Profile } from '../shared';
+import { User, Profile } from 'app/shared';
+import { UserService} from "app/core/services/";
 
 @Component({
   selector: 'profile-page',

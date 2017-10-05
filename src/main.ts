@@ -2,7 +2,7 @@ import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
-import { getTranslationProviders } from './app/shared/providers/i18n-providers';
+import { getTranslationProviders } from './app/core/providers/i18n-providers';
 import { environment } from './environments/environment';
 
 if (environment.production) {

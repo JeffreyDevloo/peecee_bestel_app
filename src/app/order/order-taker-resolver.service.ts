@@ -2,8 +2,8 @@ import { Injectable, } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 
-import { IOrder} from "../shared/js-data/interfaces/order.interface";
-import { OrderService, UserService } from '../shared';
+import { IOrder} from "app/shared/";
+import { OrderService, UserService } from 'app/core/services';
 
 @Injectable()
 export class OrderResolver implements Resolve<IOrder> {
