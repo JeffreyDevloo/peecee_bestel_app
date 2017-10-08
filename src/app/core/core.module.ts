@@ -1,9 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import { ShowAuthedDirective } from "app/core/directives";
+import { DirectivesModule } from "./directives/directives.module";
+import { LayoutModule } from "./components/layout/layout.module";
+
 import {
   AuthGuard,
   ApiService,
@@ -21,18 +23,20 @@ import {
     CommonModule,
     HttpModule,
     RouterModule,
+    // Own Modules
+    DirectivesModule,
+    LayoutModule
   ],
   exports: [
     // Modules
     CommonModule,
     HttpModule,
     RouterModule,
-    // Directives
-    ShowAuthedDirective,
+    // Own Modules
+    DirectivesModule,
+    LayoutModule
   ],
   declarations: [
-    // Directives
-    ShowAuthedDirective,
   ],
   providers: [
     // Guards
@@ -48,4 +52,11 @@ import {
     TransactionService
   ]
 })
-export class CoreModule { }
+export class CoreModule {
+  constructor (@Optional() @SkipSelf() parentModule: CoreModule) {
+    if (parentModule) {
+      throw new Error(
+        'CoreModule is already loaded. Import it in the AppModule only');
+    }
+  }
+}

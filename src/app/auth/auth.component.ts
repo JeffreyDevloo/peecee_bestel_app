@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Errors } from '../shared';
+import { Errors } from 'app/shared';
 import { UserService} from "app/core/services";
 
 @Component({

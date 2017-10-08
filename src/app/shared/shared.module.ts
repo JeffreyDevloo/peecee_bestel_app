@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import { ErrorsModule } from "app/shared/components/errors/errors.module";
+
 import {
   GroupListComponent,
   GroupButtonComponent,
@@ -12,8 +14,6 @@ import {
 } from "app/shared/pagehelpers";
 
 import { MarkdownPipe, MapIteratorPipe } from "app/shared/pipes";
-import { ErrorsModule } from "./components/errors/errors.module";
-import { LayoutModule } from "./components/layout/layout.module";
 
 @NgModule({
   imports: [
@@ -24,8 +24,7 @@ import { LayoutModule } from "./components/layout/layout.module";
     HttpModule,
     RouterModule,
     // Own Modules
-    ErrorsModule,
-    LayoutModule
+    ErrorsModule
   ],
   declarations: [
     // Component
@@ -45,7 +44,6 @@ import { LayoutModule } from "./components/layout/layout.module";
     RouterModule,
     // Own Modules
     ErrorsModule,
-    LayoutModule,
     // Components
     BeverageButtonComponent,
     BeverageListComponent,

@@ -1,9 +1,9 @@
 <!-- iterateMap will return an Array of the Map object with {key: value: } objects -->
 <section>
   <article>
-    <h1> Current pending transactions for this order</h1>
+    <h4> Current pending transactions for this order</h4>
+    <p *ngFor="let entry of transactionEntries">
+      <strong>{{ entry[0].name}}: </strong>{{entry[1].amount}} queued up!
+    </p>
   </article>
 </section>
-<p *ngFor="let entry of transactionEntries">
-  {{entry[1]}} queued up!
-</p>

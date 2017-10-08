@@ -1,10 +1,12 @@
 import { NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ListErrorsComponent} from "./list-errors.component";
+import { ListErrorsComponent } from "./list-errors.component";
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule
+  ],
   exports: [
     ListErrorsComponent
   ],

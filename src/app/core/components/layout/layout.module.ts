@@ -2,13 +2,16 @@ import { NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { HeaderComponent} from "./header.component";
+import { DirectivesModule } from 'app/core/directives/directives.module';
+
+import { HeaderComponent } from "./header.component";
 import { FooterComponent } from './footer.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    DirectivesModule
   ],
   exports: [
     HeaderComponent,

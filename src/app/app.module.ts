@@ -21,14 +21,16 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     // Angular Module
     BrowserModule,
     // Order matters in the imports
+    rootRouting,
     CoreModule,
     AuthModule,
     OrderModule,
     ProfileModule,
-    rootRouting,
     SettingsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
