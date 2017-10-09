@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import { MaterialModule } from 'app/shared/material.module'
 import { ErrorsModule } from "app/shared/components/errors/errors.module";
 
 import {
@@ -23,6 +24,8 @@ import { MarkdownPipe, MapIteratorPipe } from "app/shared/pipes";
     ReactiveFormsModule,
     HttpModule,
     RouterModule,
+    // Materials
+    MaterialModule,
     // Own Modules
     ErrorsModule
   ],
@@ -42,6 +45,8 @@ import { MarkdownPipe, MapIteratorPipe } from "app/shared/pipes";
     FormsModule,
     HttpModule,
     RouterModule,
+    // Materials
+    MaterialModule,
     // Own Modules
     ErrorsModule,
     // Components

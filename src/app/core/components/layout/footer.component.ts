@@ -8,6 +8,6 @@ import { Globals } from 'app/shared/globals';
   templateUrl: './footer.component.html'
 })
 export class FooterComponent {
-  private appTitle = Globals.APP_NAME;
+  appTitle = Globals.APP_NAME;
   today: number = Date.now();
 }

@@ -20,6 +20,7 @@ export class OrderQueuedComponent implements OnInit {
   currentUser: User;
   canModify: boolean;
   queuedBeverages: IBeverage[] = [];
+  deleteList = [];
   constructor(
     private orderService: OrderService,
     private router: Router,
@@ -59,6 +60,9 @@ export class OrderQueuedComponent implements OnInit {
     this.transactionMap.set(beverage, transaction)
   }
 
+  deleteTest(item:any){
+    this.deleteList.push(item);
+  }
   get transactionEntries(): [IBeverage, ITransaction][] {
     return Array.from(this.transactionMap.entries());
   }

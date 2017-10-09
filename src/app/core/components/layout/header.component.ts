@@ -9,7 +9,7 @@ import { UserService } from 'app/core/services';
   templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
-  private appTitle = Globals.APP_NAME;
+  appTitle = Globals.APP_NAME;
   constructor(
     private userService: UserService
   ) {}

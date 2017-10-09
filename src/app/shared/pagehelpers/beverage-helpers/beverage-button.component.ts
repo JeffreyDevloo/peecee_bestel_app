@@ -14,7 +14,7 @@ export class BeverageButtonComponent {
 
   @Input() beverage: IBeverage;
 
-  beverageButtonClicked() {
+  beverageButtonClicked(event:any) {
     console.log('Queuing beverage');
     this.beverageService.queueBeverage(this.beverage);
   }

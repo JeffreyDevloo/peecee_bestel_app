@@ -12,18 +12,3 @@
   [hidden]="loading || results.length">
   No beverages are here... yet.
 </div>
-
-<nav [hidden]="loading || totalPages <= 1">
-  <ul class="pagination">
-
-    <li class="page-item"
-      [ngClass]="{'active': pageNumber === currentPage}"
-      *ngFor="let pageNumber of totalPages"
-      (click)="setPageTo(pageNumber)">
-
-      <a class="page-link" href="#">{{ pageNumber }}</a>
-
-    </li>
-
-  </ul>
-</nav>

@@ -6,7 +6,7 @@ import { User } from 'app/shared';
 import { GroupService, UserService } from 'app/core/services';
 
 @Component({
-  selector: 'article-page',
+  selector: 'myGroup',
   templateUrl: './group.component.html'
 })
 export class GroupComponent implements OnInit {

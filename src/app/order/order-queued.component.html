@@ -1,9 +1,17 @@
 <!-- iterateMap will return an Array of the Map object with {key: value: } objects -->
 <section>
   <article>
-    <h4> Current pending transactions for this order</h4>
-    <p *ngFor="let entry of transactionEntries">
-      <strong>{{ entry[0].name}}: </strong>{{entry[1].amount}} queued up!
+    <mat-list>
+      <h4> Current pending transactions for this order</h4>
+      <mat-list-item *ngFor="let entry of transactionEntries">
+        <p>
+          <span><strong>{{ entry[0].name}}: </strong>{{entry[1].amount}} queued up!</span>
+          <span><button mat-icon-button (click)="deleteTest(entry)" color="primary"> <mat-icon>info</mat-icon> </button></span>
+        </p>
+      </mat-list-item>
+    </mat-list>
+    <p>
+      Options selected: {{deleteList.length}}
     </p>
   </article>
 </section>
